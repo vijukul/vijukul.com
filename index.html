@@ -204,7 +204,84 @@
         color: var(--text-muted);
         margin-top: 6px;
       }
+      /* ── EXPERIENCE ─────────────────────────────────────────────────── */
+      #experience { margin-bottom: 2rem; }
+    
+      .job-card {
+        background: var(--surface);
+        border-radius: 10px;
+        margin-bottom: 0.75rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        overflow: hidden;
+      }
+    
+      .job-header {
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        text-align: left;
+        position: relative;
+      }
+    
+      .job-header:hover { background: #f0f6ff; }
+    
+      .job-meta {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
       
+      .job-company { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
+    
+      .job-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--text);
+        padding-right: 2rem;
+      }
+    
+      .toggle-icon {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.25rem;
+        font-size: 1.4rem;
+        color: var(--accent);
+        font-weight: 300;
+        line-height: 1;
+        transition: transform 0.3s ease;
+      }
+      
+      .job-card.open .toggle-icon { transform: rotate(45deg); }
+    
+      .job-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+      }
+    
+      .job-card.open .job-body { max-height: 600px; }
+    
+      .job-body ul {
+        margin: 0;
+        padding: 0 1.5rem 1.25rem 2.5rem;
+        list-style: disc;
+      }
+    
+      .job-body li {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--text);
+        margin-bottom: 0.4rem;
+      }
     </style>
   </head>
   <body>
@@ -277,11 +354,104 @@
         </div>
       </section>
   
+      <!-- EXPERIENCE -->
       <section id="experience">
         <h2>Experience</h2>
-        <div class="section-body">
-          <p>Experience goes here.</p>
+    
+        <div class="job-card">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-meta">
+              <span class="job-company">Intuit · Mountain View, CA</span>
+              <span>Feb 2025 – Present</span>
+            </div>
+            <div class="job-title">Engineering Manager — Intuit Accountant Suite & QuickBooks Live Experts</div>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="job-body">
+            <ul>
+              <li>Lead 12 engineers with end-to-end ownership of two major customer-facing product surfaces, delivered and operated at a high bar across quality, stability, reliability, and performance.</li>
+              <li>Delivered Intuit Accountant Suite from Alpha through GA against a hard timeline.</li>
+              <li>Cut end-to-end response times by up to 12× through BFF layer optimizations and caching; expanded capacity for the platform's largest customers.</li>
+              <li>Led the Guided Setup AI Agent from launch through a production A/B test — owned architecture, roadmap, and delivery; embedded AI-native practices (Claude Code, AI-assisted PR reviews, agentic workflows) as standard team
+      infrastructure.</li>
+              <li>Drive multi-quarter roadmaps across new launches, platform investments, and run-the-business ownership; develop engineers into senior technical leaders.</li>
+            </ul>
+          </div>
         </div>
+      
+        <div class="job-card">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-meta">
+              <span class="job-company">Intuit · Mountain View, CA</span>
+              <span>Nov 2022 – Feb 2025</span>
+            </div>
+            <div class="job-title">Engineering Manager — Core AI Services</div>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="job-body">
+            <ul>
+              <li>Led the team responsible for Intuit's centralized LLM orchestration platform and developer-facing GenAI tooling — a shared platform powering hundreds of production AI applications.</li>
+              <li>Drove 20–30×+ throughput improvement and ~35% P99 latency reduction; managed inbound platform requests and extension patterns for a dozen-plus consuming teams.</li>
+              <li>Launched a document and image labeling capability within developer-facing GenAI tooling, enabling downstream teams to generate training data for model fine-tuning and evaluation.</li>
+              <li>Scaled the team from five to eleven engineers; defined the multi-year roadmap for Intuit's GenAI platform and ML infrastructure.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="job-card">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-meta">
+              <span class="job-company">Intuit · Mountain View, CA</span>
+              <span>Nov 2019 – Nov 2022</span>
+            </div>
+            <div class="job-title">Staff Software Engineer & Tech Lead — Feature Management Platform</div>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="job-body">
+            <ul>
+              <li>Built and scaled Intuit's ML Feature Management Platform — a highly available distributed system processing millions of feature requests per second, powering 2M+ models and ~65B predictions per day.</li>
+              <li>Reduced ML feature creation from ~2 weeks to under 2 hours through developer-centric self-service abstractions.</li>
+              <li>Led a team of seven engineers through architecture and delivery; presented platform work externally at industry venues.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="job-card">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-meta">
+              <span class="job-company">Intuit · Mountain View, CA</span>
+              <span>Jul 2016 – Nov 2019</span>
+            </div>
+            <div class="job-title">Staff Software Engineer & Tech Lead — QuickBooks Online Accountant</div>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="job-body">
+            <ul>
+              <li>Ran a rigorous A/B experimentation program on the ProAdvisor personalized-content surface — card ordering, layout variants, and nudge strategies that delivered a 35% month-over-month engagement lift and 8K+ annualized new paid
+      subscriptions.</li>
+              <li>Launched the redesigned ProAdvisor program across four regions — owned end-to-end re-architecture of Find-a-ProAdvisor, onboarding, profile management, and the points-based rewards system, serving 400K+ accountants
+      worldwide.</li>
+              <li>Led a team of eight engineers in close partnership with Product, Marketing, and Sales.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="job-card">
+          <button class="job-header" aria-expanded="false">
+            <div class="job-meta">
+              <span class="job-company">Intuit · Mountain View, CA</span>
+              <span>Jun 2009 – Jul 2016</span>
+            </div>
+            <div class="job-title">Software Engineer → Senior Software Engineer — QuickBooks Online</div>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="job-body">
+            <ul>
+              <li>Full-stack contributor on the redesigned QuickBooks Online platform; built core product capabilities and a standardized A/B testing and analytics framework adopted across the product.</li>
+            </ul>
+          </div>
+        </div>
+    
       </section>
 
       <section id="skills">
@@ -304,6 +474,15 @@
       <p>© 2026 Vijay Kulkarni</p>
     </footer>
 
+     <script>
+      document.querySelectorAll('.job-header').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = btn.closest('.job-card');
+          const isOpen = card.classList.toggle('open');
+          btn.setAttribute('aria-expanded', isOpen);
+        });
+      });
+    </script>
   </body>
   </html>
 
