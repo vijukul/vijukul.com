@@ -383,6 +383,65 @@
         color: var(--muted);
       }
 
+      /* ── SMOOTH SCROLL + SECTION OFFSET ─────────────────────────────── */
+      html { scroll-behavior: smooth; }
+      section { scroll-margin-top: 58px; }
+    
+      /* ── STICKY NAV ──────────────────────────────────────────────────── */
+      #sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--surface);
+        border-bottom: 1px solid #e0e8f0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      }
+    
+      #sticky-nav ul {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0 2rem;
+        max-width: 860px;
+        display: flex;
+        gap: 0.25rem;
+      }
+    
+      #sticky-nav li a {
+        display: block;
+        padding: 0.85rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+    
+      #sticky-nav li a:hover { color: var(--accent); }
+      
+      #sticky-nav li a.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      /* ── FOOTER ──────────────────────────────────────────────────────── */
+      footer {
+        background: var(--primary);
+        color: rgba(255,255,255,0.6);
+        text-align: center;
+        padding: 1.5rem 2rem;
+        font-size: 0.85rem;
+        margin-top: 2rem;
+      }
+    
+      footer a {
+        color: rgba(255,255,255,0.85);
+        text-decoration: none;
+      }
+    
+      footer a:hover { color: #fff; }
+      
     </style>
   </head>
   <body>
@@ -408,7 +467,15 @@
       </div>
     </div>
   </header>
-
+  <nav id="sticky-nav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+    
     <!-- MAIN CONTENT -->
     <main>
 
@@ -666,11 +733,13 @@
 
     </main>
 
-    <footer>
-      <p>© 2026 Vijay Kulkarni</p>
-    </footer>
 
-     <script>
+  <footer>
+    <p>Vijay Kulkarni · <a href="https://linkedin.com/in/vijukul" target="_blank" rel="noopener">linkedin.com/in/vijukul</a></p>
+  </footer>
+
+   <script>
+      // Accordion for job cards
       document.querySelectorAll('.job-header').forEach(btn => {
         btn.addEventListener('click', () => {
           const card = btn.closest('.job-card');
@@ -678,7 +747,24 @@
           btn.setAttribute('aria-expanded', isOpen);
         });
       });
+  
+      // Active nav link tracking
+      const navLinks = document.querySelectorAll('#sticky-nav a');
+      const sections = document.querySelectorAll('main section');
+  
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const active = document.querySelector(`#sticky-nav a[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+  
+      sections.forEach(s => observer.observe(s));
     </script>
+    
   </body>
   </html>
 
