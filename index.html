@@ -282,6 +282,56 @@
         color: var(--text);
         margin-bottom: 0.4rem;
       }
+
+      /* ── SKILLS ──────────────────────────────────────────────────────── */
+      #skills { margin-bottom: 2rem; }
+    
+      .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+    
+      .skill-group { }
+      
+      .skill-group-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-bottom: 0.5rem;
+      }
+      
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      
+      .pill {
+        background: #e8f2fc;
+        color: var(--primary);
+        border-radius: 20px;
+        padding: 0.35rem 0.9rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+    
+      .pill:hover {
+        background: var(--accent);
+        color: #fff;
+        cursor: default;
+      }
+    
+      .pill.highlight {
+        background: var(--primary);
+        color: #fff;
+      }
+
     </style>
   </head>
   <body>
@@ -454,10 +504,79 @@
     
       </section>
 
+    <!-- SKILLS -->
       <section id="skills">
         <h2>Skills</h2>
-        <div class="section-body">
-          <p>Skills go here.</p>
+    
+        <div class="skills-grid">
+    
+          <div class="skill-group">
+            <div class="skill-group-label">Engineering Leadership</div>
+            <div class="pill-row">
+              <span class="pill highlight">Engineering Management</span>
+              <span class="pill highlight">Multi-team Leadership</span>
+              <span class="pill">Roadmap Strategy</span>
+              <span class="pill">Hiring & Performance</span>
+              <span class="pill">Technical Mentorship</span>
+              <span class="pill">Player-Coach</span>
+              <span class="pill">Cross-functional Partnership</span>
+            </div>
+          </div>
+      
+          <div class="skill-group">
+            <div class="skill-group-label">Experimentation & Personalization</div>
+            <div class="pill-row">
+              <span class="pill highlight">A/B Test Design & Analysis</span>
+              <span class="pill highlight">Experimentation Strategy</span>
+              <span class="pill">Sample Size Estimation</span>
+              <span class="pill">Personalization Systems</span>
+              <span class="pill">Content Strategy</span>
+              <span class="pill">Product Surface Analytics</span>
+            </div>
+          </div>
+    
+          <div class="skill-group">
+            <div class="skill-group-label">Product & Platform</div>
+            <div class="pill-row">
+              <span class="pill highlight">Product Surface Ownership</span>
+              <span class="pill highlight">AI-Native Development</span>
+              <span class="pill">Alpha → GA Launch</span>
+              <span class="pill">Platform Strategy</span>
+              <span class="pill">Developer-facing Tooling</span>
+              <span class="pill">Claude Code</span>
+            </div>
+          </div>
+    
+          <div class="skill-group">
+            <div class="skill-group-label">Architecture & Systems</div>
+            <div class="pill-row">
+              <span class="pill highlight">Distributed Systems</span>
+              <span class="pill highlight">BFF Layer Architecture</span>
+              <span class="pill">LLM Orchestration</span>
+              <span class="pill">API Gateways</span>
+              <span class="pill">Microservices</span>
+              <span class="pill">High-availability Serving</span>
+              <span class="pill">Performance Engineering</span>
+              <span class="pill">RAG Systems</span>
+            </div>
+          </div>
+    
+          <div class="skill-group">
+            <div class="skill-group-label">Technical Stack</div>
+            <div class="pill-row">
+              <span class="pill">JavaScript / TypeScript</span>
+              <span class="pill">React</span>
+              <span class="pill">Java · Spring Boot</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">AWS</span>
+              <span class="pill">Kubernetes</span>
+              <span class="pill">Apache Kafka</span>
+              <span class="pill">Apache Spark</span>
+              <span class="pill">Apache Flink</span>
+              <span class="pill">CI/CD</span>
+            </div>
+          </div>
+    
         </div>
       </section>
 
